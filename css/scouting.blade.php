@@ -1,3 +1,4 @@
+@section('layout')
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,9 @@
 </head>
 <body>
   @extends('layouts.app')
+  @section('title')
+  @section('topnavigationbar')
+  @section('bottomnavigationbar')
 	@section('topnavigationbar')
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navbar">
       <!-- <a style="color:#ffcc00;margin-bottom:20px" class="navbar-brand" href="#">Scouting Navbar</a> -->
@@ -69,3 +73,6 @@
 
 </body>
 </html>
+@show
+@parent
+@endsection
