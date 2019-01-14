@@ -15,6 +15,19 @@ class CreateDataTable extends Migration
     {
         Schema::create('data', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('match_num');
+            $table->integer('team_num');
+            $table->string('alliance', 191);
+            $table->integer('starting_point');
+            $table->string('driving_sandstorm_type', 191);
+            $table->integer('rocket_hatches');
+            $table->integer('rocket_balls');
+            $table->integer('cargo_hatches');
+            $table->integer('cargo_balls');
+            $table->integer('end_position');
+            $table->integer('red_score');
+            $table->integer('blue_score');
+            $table->integer('end_status');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
