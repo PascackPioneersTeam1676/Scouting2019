@@ -15,6 +15,7 @@ class CreateDataTable extends Migration
     {
         Schema::create('data', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->integer('match_num');
             $table->integer('team_num');
             $table->string('alliance', 191);
