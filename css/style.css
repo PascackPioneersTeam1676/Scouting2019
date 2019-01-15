@@ -9,18 +9,34 @@
 }
 
 .active {
-	color:#ffcc00;
-	margin-left:20px;
-	margin-bottom:20px;
+  color:#ffcc00;
+  margin-left:20px;
+  margin-bottom:20px;
 }
 
 .copyright {
-	padding-left:20px;
-	padding-top:5px;
-	margin-bottom:5px;
-	color:#ffcc00;
+  padding-left:20px;
+  padding-top:5px;
+  margin-bottom:5px;
+  color:#ffcc00;
 }
 
 #navbar {
-	background-color:white;
+  background-color:white;
+}
+
+.signin-div {
+  align:center;
+  margin-left: 50%;
+  position: relative;
+  left: -60px;
+}
+
+#deepspaceimg {
+  width:400px;
+  height:400px;
+  align:center;
+  margin-left: 50%;
+  position: relative;
+  left: -200px;
 }
