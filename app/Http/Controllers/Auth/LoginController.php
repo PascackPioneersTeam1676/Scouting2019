@@ -77,6 +77,7 @@ class LoginController extends Controller
             $newUser->avatar          = $user->avatar;
             $newUser->avatar_original = $user->avatar_original;
             $newUser->save();
+            $newUser->roles()->attach(2);
             auth()->login($newUser, true);
         }
         return redirect()->to('/home');
