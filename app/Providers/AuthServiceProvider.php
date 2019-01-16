@@ -36,6 +36,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('view-data', function ($user) {
             return $user->hasAccess(['view-data']);
         });
+        Gate::define('view-all-data', function ($user) {
+            return $user->hasAccess(['view-all-data']);
+        });
     }
 
 }

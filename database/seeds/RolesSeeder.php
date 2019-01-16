@@ -17,7 +17,9 @@ class RolesSeeder extends Seeder
             'slug' => 'admin',
             'permissions' => [
                 'view-data' => true,
+                'view-all-data' => true,
                 'submit-data' => true,
+                'view-users' => true,
                 'edit-users' => true,
             ]
         ]);
