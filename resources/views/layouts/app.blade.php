@@ -67,6 +67,16 @@
                                 </div>
                             </li>
                         @endguest
+                        @can('scout')
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Sexy</a>
+                            </li>
+                        @endcan
+                        @can('view-data')
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Sexy</a>
+                            </li>
+                        @endcan
                     </ul>
                 </div>
             </div>
