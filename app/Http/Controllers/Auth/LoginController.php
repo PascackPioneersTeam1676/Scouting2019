@@ -60,6 +60,7 @@ class LoginController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
+            echo var_dump($user);
         } catch (Exception $e) {
             return redirect('/login');
         }
@@ -76,8 +77,15 @@ class LoginController extends Controller
             $newUser->google_id       = $user->id;
             $newUser->avatar          = $user->avatar;
             $newUser->avatar_original = $user->avatar_original;
+            $acl = 2;
+            if (substr($user->email, strrpos($user->email, "@") + 1) == "pascack.org") {
+              $acl = 2;
+            }
+            else {
+              $acl = 3;
+            }
             $newUser->save();
-            $newUser->roles()->attach(2);
+            $newUser->roles()->attach($acl);
             auth()->login($newUser, true);
         }
         return redirect()->to('/home');

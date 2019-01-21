@@ -69,12 +69,12 @@
                         @endguest
                         @can('scout')
                         <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Sexy</a>
+                                <a class="nav-link" href="{{ route('login') }}">Scout</a>
                             </li>
                         @endcan
                         @can('view-data')
                         <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Sexy</a>
+                                <a class="nav-link" href="{{ route('login') }}">Data</a>
                             </li>
                         @endcan
                     </ul>
