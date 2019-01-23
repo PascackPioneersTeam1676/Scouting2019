@@ -17,6 +17,7 @@ class DataController extends Controller
         // $shares = Share::all();
 
         // return view('shares.index', compact('shares'));
+        return "hello there";
     }
 
     /**
