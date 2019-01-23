@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Data;
 
 class DataController extends Controller
 {
@@ -25,7 +26,7 @@ class DataController extends Controller
      */
     public function create()
     {
-        //
+        return view('data.create');
     }
 
     /**
@@ -36,7 +37,7 @@ class DataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return redirect()->with('success', 'Data submitted successfully');
     }
 
     /**
@@ -47,7 +48,16 @@ class DataController extends Controller
      */
     public function show($id)
     {
-        //
+        //get one specific data submission
+    }
+
+    public function getMatch($match)
+    {
+        //match layout
+    }
+
+    public function getTeams() {
+    	//code to get the team layout
     }
 
     /**
@@ -58,6 +68,9 @@ class DataController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $share = Data::find($id);
+	    $share->delete();
+
+	    return redirect('/shares')->with('success', 'Stock has been deleted Successfully');
     }
 }
