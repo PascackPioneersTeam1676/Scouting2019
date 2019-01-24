@@ -74,7 +74,7 @@
                         @endcan
                         @can('view-data')
                         <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Data</a>
+                                <a class="nav-link" href="{{ route('login') }}">Rawdata</a>
                             </li>
                         @endcan
                     </ul>
