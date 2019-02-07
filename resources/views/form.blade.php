@@ -8,28 +8,14 @@
 <h1 class="scouting-header">Submit Scouting Data</h1>
 <div class="row">
 	<div class="col-sm-12">
-		<div class="progress">
-			<div class="circle active">
-				<span class="label">1</span>
-				<span class="title">Pre-match</span>
-			</div>
-			<span class="bar"></span>
-			<div class="circle">
-				<span class="label">2</span>
-				<span class="title">During the game</span>
-			</div>
-			<span class="bar"></span>
-			<div class="circle">
-				<span class="label">3</span>
-				<span class="title">Endgame</span>
-			</div>
-			<span class="bar"></span>
-			<div class="circle">
-				<span class="label">4</span>
-				<span class="title">Review</span>
-			</div>
+		<!-- Circles which indicates the steps of the form: -->
+		<div style="text-align:center;margin-top:40px;">
+			<span class="step"></span>
+			<span class="step"></span>
+			<span class="step"></span>
+			<span class="step"></span>
 		</div>
-		<div id="pregame" class="content" role="tabpanel" aria-labelledby="pregame-trigger">
+		<div id="tab" class="content" role="tabpanel" aria-labelledby="pregame-trigger">
 			<h2 class="text-center">Pre-match</h2>
 			<form name="form">
 				<div class="form-group row">
@@ -80,7 +66,7 @@
 				</fieldset>
 				<br>
 			</div>
-			<div id="midgame" class="content" role="tabpanel" aria-labelledby="midgame-trigger">
+			<div id="tab" class="content" role="tabpanel" aria-labelledby="midgame-trigger">
 				<h2 class="text-center">During the game</h2>
 				<fieldset class="form-group">
 					<div class="row">
@@ -151,7 +137,7 @@
 				</div>
 				<br>
 			</div>
-			<div id="endgame" class="content" role="tabpanel" aria-labelledby="endgame-trigger">
+			<div id="tab" class="content" role="tabpanel" aria-labelledby="endgame-trigger">
 				<h2 class="text-center">Endgame</h2>
 				<fieldset class="form-group">
 					<div class="row">
@@ -210,7 +196,7 @@
 			</form>
 			<br>
 		</div>
-		<div id="review" class="content" role="tabpanel" aria-labelledby="review-trigger">
+		<div id="tab" class="content" role="tabpanel" aria-labelledby="review-trigger">
 			<h2 class="text-center">Review</h2>
 			<div class="row">
 				<div class="col-sm-6">
@@ -248,8 +234,8 @@
 			</div>
 		</div>
 		<div class="d-flex justify-content-center">
-			<button class="btn btn-primary" onclick="lastForm()">Previous</button>&nbsp;
-			<button class="btn btn-primary" onclick="nextForm()">Next</button>
+			<button class="btn btn-primary" id="prevBtn" onclick="nextPrev(-1)">Previous</button>&nbsp;
+			<button class="btn btn-primary" id="nextBtn" onclick="nextPrev(1)">Next</button>
 		</div>
 	</div>
 </div>

@@ -1,119 +1,42 @@
-$(document).ready(function () {
-    $("#studA").hide();
-    $("#studB").hide();
-    $("#studC").hide();
-    $("#mentA").hide();
-    var input = document.getElementById('next');
-    document.getElementById('stud').addEventListener('click', function () {
-        studQuestions();
-    });
-    document.getElementById('ment').addEventListener('click', function () {
-        mentQuestions();
-    });
-    document.getElementById('par').addEventListener('click', function () {
-        parQuestions();
-    });
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
 
-    function studQuestions(){
-        $("#studA").show();
-        $("#studB").show();
-        $("#studC").show();
-        $("#mentA").hide();
-    }
-    function mentQuestions(){
-        $("#studA").hide();
-        $("#studB").hide();
-        $("#studC").hide();
-        $("#mentA").show();
-    }
-    function parQuestions(){
-        $("#studA").hide();
-        $("#studB").hide();
-        $("#studC").hide();
-        $("#mentA").hide();
-    }
-});
-
-$(".form")
-  .find("input, textarea, select")
-  .on("keyup blur focus", function(e) {
-    var $this = $(this),
-      label = $this.prev("label");
-
-    if (e.type === "keyup") {
-      if ($this.val() === "") {
-        label.removeClass("active highlight");
-      } else {
-        label.addClass("active highlight");
-      }
-    } else if (e.type === "blur") {
-      if ($this.val() === "") {
-        label.removeClass("active highlight");
-      } else {
-        label.removeClass("highlight");
-      }
-    } else if (e.type === "focus") {
-      if ($this.val() === "") {
-        label.removeClass("highlight");
-      } else if ($this.val() !== "") {
-        label.addClass("highlight");
-      }
-    }
-  });
-
-$(".tab a").on("click", function(e) {
-  e.preventDefault();
-
-  $(this)
-    .parent()
-    .addClass("active");
-  $(this)
-    .parent()
-    .siblings()
-    .removeClass("active");
-
-  target = $(this).attr("href");
-
-  $(".tab-content > div")
-    .not(target)
-    .hide();
-
-  $(target).fadeIn(600);
-});
-
-function addClassByClickA(){
-  $(dropA).addClass("active")
-}
-
-function addClassByClickB(){
-  $(dropB).addClass("active")
-}
-
-function addClassByClickC(){
-  $(dropC).addClass("active")
-}
-
-
-
-var i = 2;
-function nextStep() {
-  $('.progress .circle:nth-of-type(' + i + ')').addClass('active');
-
-  $('.progress .circle:nth-of-type(' + (i-1) + ')').removeClass('active').addClass('done');
-
-  $('.progress .circle:nth-of-type(' + (i-1) + ') .label').html('&#10003;');
-
-  $('.progress .bar:nth-of-type(' + (i-1) + ')').addClass('active');
-
-  $('.progress .bar:nth-of-type(' + (i-2) + ')').removeClass('active').addClass('done');
-
-  i++;
-
-  if (i==0) {
-    $('.progress .bar').removeClass().addClass('bar');
-    $('.progress div.circle').removeClass().addClass('circle');
-    i = 1;
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
   }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
 }
 
 function plus(countName){
@@ -157,5 +80,5 @@ function nextForm() {
 }
 
 function lastForm() {
-  
+
 }
